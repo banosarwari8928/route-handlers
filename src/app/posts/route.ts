@@ -3,12 +3,15 @@ import {data} from "./data";
 export async function GET() { 
     return Response.json(data);
 }
-export async function POST(Request:any){
-    const newPost = await Request.json();
-    const {title,content}=newPost;
-    const getPost={
-        title:"title for post 4",
-        content:"content of post 4"
-    }data.push(getPost);
-    return Response.json(getPost);
+export async function POST(request:Request){
+    const body =await request.json();
+    const {title,content} = body;
+    const newPost= {
+        id:data.length+1,
+        title,
+        content
+    } 
+     data.push(newPost);
+    return Response.json(newPost ,{headers: {"content-type":"application/json"},status:201});
+
 }
