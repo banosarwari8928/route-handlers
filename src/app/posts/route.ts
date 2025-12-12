@@ -1,6 +1,13 @@
+import { NextRequest } from "next/server";
 import {data} from "./data";
 
-export async function GET() { 
+export async function GET(request:NextRequest) { 
+    const searchParams = request.nextUrl.searchParams;
+    const query=searchParams.get("query");
+    const filterdata= query?data.filter((post)=>
+    {  return  post.title.toLowerCase().includes(query.toLowerCase())||post.content.toLowerCase().includes(query.toLowerCase())}
+)
+:data;
     return Response.json(data);
 }
 export async function POST(request:Request){

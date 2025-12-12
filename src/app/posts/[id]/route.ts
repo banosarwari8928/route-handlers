@@ -13,3 +13,9 @@ export async function PATCH(request:Request,{params}:{params:Promise<{id:string}
     data[index].content;
     return Response.json(data[index]);
 }
+export async function DELETE(request:Request,{params}:{params:Promise<{id:string}>}){
+    const {id}= await params;
+  const index=  data.findIndex((post)=>post.id===parseInt(id));
+ const deleted= data.splice(index,1);
+ return Response.json(deleted);
+}
