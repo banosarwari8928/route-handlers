@@ -1,4 +1,4 @@
-
+export const dynamic = "force-static";
 export async function GET(){
     const list = [
         {id:1,name:"Pinaapples"},
