@@ -1,4 +1,6 @@
+import { redirect } from "next/navigation";
 export async function GET(){
+    redirect("updatedPro");
     const list = [
         {id:1,name:"Grapes"},
         {id:2,name:"Apples" },
