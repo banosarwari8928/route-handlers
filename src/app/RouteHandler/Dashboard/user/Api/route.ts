@@ -7,7 +7,7 @@ export async function GET(request:NextRequest) {
  console.log(cookie);
  const newcookie = await cookies();
  request.cookies.clear();
- newcookie.set("isloggedin","Murtaza");
+ newcookie.set("isloggedin","M");
  newcookie.delete("theme");
  console.log(newcookie.get("isloggedin"));
     return new Response("hello from API",{
